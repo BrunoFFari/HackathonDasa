@@ -1,0 +1,13 @@
+.card-agendamento{
+    padding: 10px 10px 20px 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.icons{
+    clear: both;
+    float: right;
+}
+
+.icons i{
+    padding: 0px 10px 0px 10px;
+}
