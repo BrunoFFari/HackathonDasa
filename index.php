@@ -13,7 +13,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" style=" background-color: #302892">
             <a class="navbar-brand" href="#">DASA - HACKATHON   | </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -33,11 +33,11 @@
             <div class="col-3" id="agendamentos" style="border-right: 1px solid #CCC; padding: 0px !important; height: 100vh;">
     
             </div>
-            <div class="col-6">
-                <div class="container">
+            <div class="col-9 ">
+                <div class="container-fluid">
                     <h2>Notificações</h2>
                     <hr>
-                    <div class="container" id="notificacoes">
+                    <div class="container-fluid" id="notificacoes">
                         
                     </div>
                 </div>
@@ -124,18 +124,22 @@
                         const element = response[i];
                         var text = '';
                         var color = '#000';
+                        var back = '#FFF';
 
                         if(element.status_agendamento == 0){
                             text = 'Aguardando confirmação';
+                            back = '#FFF';
                         }else if(element.status_agendamento == 1){
                             text = 'Agendamento confirmado';
                             color = 'green';
+                            back = '#D4EDDA';
                         }else if(element.status_agendamento == 2){
                             text = 'Agendamento Cancelado';
                             color = '#c0392b';
+                            back = '#FFF';
                         }
                         
-                        $('#agendamentos').append('<div class="card-agendamento"> \
+                        $('#agendamentos').append('<div class="card-agendamento" style="background-color:'+back+'"> \
                                                         <span>'+element.hora+'</span> \
                                                         <p>'+element.nome+' <br/> <small style="color:'+color+'">'+text+'</small> </p> \
                                                         <div class="row icons"> \
@@ -218,7 +222,7 @@
                         alert('Erro ao confirmar agendamento.');
                     }
 
-                    //window.location.reload();
+                    window.location.reload();
                 }
             })
 
@@ -243,7 +247,7 @@
                             alert('Erro ao cancelar agendamento.');
                         }
 
-                        //window.location.reload();
+                        window.location.reload();
                     }
                 });
             }
